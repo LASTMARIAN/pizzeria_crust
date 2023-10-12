@@ -1,0 +1,262 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background-color: burlywood;
+                border-right-style: dashed;
+                 border-left-style: dashed;
+                border-width: 70px
+                
+            }
+            img {
+                max-width: 70%;
+                max-height: 400px;
+                border-style: double;
+                border-width: 5px;
+            }
+            
+            select {
+                margin-bottom: 100px;
+            }
+            h1 {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: 100px;
+                background-color: #f54e57;
+                border-style: double;
+                border-width: 10px;
+                text-align: center;
+            }
+            h2 {
+                text-align: center;
+                font-size: 70px;
+            }
+            
+            th {
+                width: 30%;
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+        <table>
+            <tr>
+                <th></th>
+                <th>
+                    <h1>Crust Pizzeria</h1>
+                    <h2>Valitse pizzoja:</h2>
+                </th>
+                <th><input type="button" value="Rekisteröidä!" style="width: 50%; height: 30%; font-size: 30px" onclick="location.href='http://127.0.0.1:8000/registration'"></th>
+                
+            </tr>
+            <form action="checkout" method="post">
+                {% csrf_token %}
+                <tr>
+                    <th>
+                        <h3>Pizza Marinara</h3>
+                        <img src="{% static 'marinara.jpg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input1_p"></p>
+                        <label for="koko1">Valitse kokoa:</label>
+                            <select name="koko1"> 
+                                <option value="S">S</option> 
+                                <option value="M">M</option> 
+                                <option value="L">L</option> 
+                            </select>
+                    </th>
+                    <th>
+                        <h3>Pizza Romana</h3>
+                        <img src="{% static 'romana.jpg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input4_p"></p>
+                        <label for="koko4">Valitse kokoa:</label>
+                            <select name="koko4"> 
+                                <option value="S">S</option> 
+                                <option value="M">M</option> 
+                                <option value="L">L</option> 
+                            </select>
+                    </th>
+                    <th>
+                        <h3>Pizza Capricciosa</h3>
+                        <img src="{% static 'capricciosa.jpg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input7_p"></p>
+                        <label for="koko7">Valitse kokoa:</label>
+                            <select name="koko7"> 
+                                <option value="S">S</option> 
+                                <option value="M">M</option> 
+                                <option value="L">L</option> 
+                            </select>
+                    </th>
+                </tr>  
+                <tr>
+                    <th>
+                        <h3>Pizza Marherita</h3>
+                        <img src="{% static 'marherita.jpg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input2_p"></p>
+                        <label for="koko2">Valitse kokoa:</label>
+                            <select name="koko2"> 
+                                <option value="S">S</option> 
+                                <option value="M">M</option> 
+                                <option value="L">L</option> 
+                            </select>
+                    </th>
+                    <th>
+                        <h3>Pizza Viennese</h3>
+                        <img src="{% static 'viennese.jpg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input5_p"></p>
+                        <label for="koko5">Valitse kokoa:</label>
+                            <select name="koko5"> 
+                                <option value="S">S</option> 
+                                <option value="M">M</option> 
+                                <option value="L">L</option> 
+                            </select>
+                    </th>
+                    <th>
+                        <h3>Pizza Quattro Formaggi</h3>
+                        <img src="{% static 'formaggi.jpg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input8_p"></p>
+                        <label for="koko8">Valitse kokoa:</label>
+                            <select name="koko8"> 
+                                <option value="S">S</option> 
+                                <option value="M">M</option> 
+                                <option value="L">L</option> 
+                            </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <h3>Pizza Bolognese</h3>
+                        <img src="{% static 'bolognese.jpg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input3_p"></p>
+                        <label for="koko3">Valitse kokoa:</label>
+                            <select name="koko3"> 
+                                <option value="S">S</option> 
+                                <option value="M">M</option> 
+                                <option value="L">L</option> 
+                            </select>
+                    </th>
+                    <th>
+                        <h3>Pizza Francescana</h3>
+                        <img src="{% static 'francescana.jpg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input6_p"></p>
+                        <label for="koko6">Valitse kokoa:</label>
+                            <select name="koko6"> 
+                                <option value="S">S</option> 
+                                <option value="M">M</option> 
+                                <option value="L">L</option> 
+                            </select>
+                    </th>
+                    <th>
+                        <h3>Pizza Mozzarella</h3>
+                        <img src="{% static 'mozzarella.jpg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input9_p" style="margin-bottom: 100px;"></p>
+                        <label for="koko9">Valitse kokoa:</label>
+                            <select name="koko9"> 
+                                <option value="S">S</option> 
+                                <option value="M">M</option> 
+                                <option value="L">L</option> 
+                            </select>
+                    </th>
+                </tr> 
+                <tr>
+                    <th></th>
+                    <th>
+                        <h2>Valitse juomia:</h2>
+                    </th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>
+                        <h3>Coca-Cola 0.33l</h3>
+                        <img src="{% static 'coca_cola_0.33.jpg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input1_j"></p>
+                    </th>
+                    <th>
+                        <h3>Red Bull 0.33l</h3>
+                        <img src="{% static 'red_bull.jpg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input4_j"></p>
+                    </th>
+                    <th>
+                        <h3>Lähdevesi</h3>
+                        <img src="{% static 'lähdevesi.png' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input7_j"></p>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <h3>Coca-Cola 0.5l</h3>
+                        <img src="{% static 'coca_cola_0.5.png' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input2_j"></p>
+                    </th>
+                    <th>
+                        <h3>Pepsi 0.5l</h3>
+                        <img src="{% static 'pepsi_0.5.jpeg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input5_j"></p>
+                    </th>
+                    <th>
+                        <h3>Omenamehu</h3>
+                        <img src="{% static 'omena.jpg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input8_j"></p>
+                    </th>
+                </tr>   
+                <tr>
+                    <th>
+                        <h3>Cappuchino</h3>
+                        <img src="{% static 'cappuchino.jpg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input10_j"></p>
+                    </th>
+                    <th>
+                        <h3>Monster Energy</h3>
+                        <img src="{% static 'monster_energy.jpeg' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input3_j"></p>
+                    </th>
+                    <th>
+                        <h3>Pepsi 0.33l</h3>
+                        <img src="{% static 'pepsi_0.33.png' %}">
+                        <p>Määrä:</p>
+                        <p><input type="number" value="0" name="input6_j"></p>
+                    </th>
+                </tr>  
+                <tr>
+                    <th></th>
+                    <th style="margin-left: 30%;">
+                    <h3>Vaniljapirtelö</h3>
+                    <img src="{% static 'vaniljapirtelö.png' %}">
+                    <p>Määrä:</p>
+                    <p><input type="number" value="0" name="input9_j"></p>
+                    </th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>
+                        <input type="submit" value="Siirry maksamaan" style="height: 100px; width: 200px; font-size: 20px; margin-top: 200px; margin-bottom: 100px">
+                    </th>
+                    <th></th>
+                </tr>      
+
+            </form>
+            
+        </table>
+        
+        
+    </body>
+    
+</html>

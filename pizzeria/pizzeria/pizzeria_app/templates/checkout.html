@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background-color: burlywood;
+                border-right-style: dashed;
+                border-left-style: dashed;
+                border-width: 50px
+                
+            }
+            th {
+                font-size: 35px;
+            }
+            table {
+                margin-left: 33%;
+                text-align: left;
+                width: 33%;
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>
+                    {% for each in tilaus %}
+                        {% if each.1|length == 1 %}
+                            <tr>
+                                <th style="text-align: left;">
+                                    {{ each.0 }} {{ each.1 }}, {{ each.3 }} kpl 
+                                </th>
+                                <th style="text-align: right;">
+                                    {{ each.2 }}€
+                                </th>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <th style="text-align: left;">
+                                    {{ each.1 }}, {{ each.3 }} kpl 
+                                </th>
+                                <th style="text-align: right;">
+                                    {{ each.2 }}€
+                                </th>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    <tr>
+                        <th>
+                            <p style="text-align: right;">——————————————————</p>
+                        </th>
+                    </tr>
+                    <tr>
+                        
+                        <th style="text-align: left;">
+                            <p style="font-size: 45px">Yhteensä:</p> 
+                            
+                        </th>
+                        <th style="text-align: right;">
+                            <p style="font-size: 45px">{{ local_koko_hinta }}€</p>
+                        </th>
+                    </tr>
+                      
+                </th>
+            </tr>
+            <form action="success" method="post">
+                {% csrf_token %}
+                <tr>
+                    <th>
+                        {% if is_failed == True %}
+                            <p style="font-size: 20px; color: crimson;">Väärä käyttäjänimi tai salasana. Yritä uudelleen.</p>
+                        {% endif %}
+                        <p>Sinun käyttäjätunnus:</p>
+                        <input type="text" name="username" value="">
+                        <p>Sinun salasanasi:</p>
+                        <input type="password" name="password" value="">
+                        <p style="color: grey;">(Käyttäjätunnuksella saamme sinun yhteystiedot)</p>
+                        <input type="submit" value="Lähettää tilauksen">
+                    </th>
+                </tr>
+            </form>
+            
+        </table>
+        
+        
+    </body>
+</html>
